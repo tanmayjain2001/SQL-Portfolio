@@ -1,0 +1,88 @@
+-- Checking duration of rides below or equal to 0.
+SELECT
+Duration
+FROM
+overall_data
+WHERE
+Duration <= 0
+
+---
+
+-- Duration can not be negative so removing those
+DELETE
+FROM
+overall_data
+WHERE
+Duration <=
+
+---
+
+-- Checking For Null Values.
+SELECT
+*
+FROM
+overall_data
+WHERE
+Ride_id IS NULL
+or Rideable_Type IS NULL
+or Membership_Type IS NULL
+or Start_Time IS NULL
+or Start_Date IS NULL
+or Start_Month IS NULL
+or Start_Day IS NULL
+or Start_Station_Name IS NULL
+or End_Time IS NULL
+or End_Date IS NULL
+or End_Month IS NULL
+or End_Day IS NULL
+or End_Station_Name IS NULL
+or Duration IS NULL
+
+---
+
+-- Removing Null Values.
+
+DELETE
+FROM overall_data
+WHERE
+Ride_id IS  NULL
+or Rideable_Type IS  NULL
+or Membership_Type IS  NULL
+or Start_Time IS  NULL
+or Start_Date IS  NULL
+or Start_Month IS  NULL
+or Start_Day IS  NULL
+or Start_Station_Name IS  NULL
+or End_Time IS  NULL
+or End_Date IS  NULL
+or End_Month IS  NULL
+or End_Day IS  NULL
+or End_Station_Name IS  NULL
+or Duration IS  NULL
+
+---
+
+-- Identifying duplicate values.
+
+SELECT
+*,
+COUNT(*) AS Duplicate_count
+FROM
+overall_data
+GROUP BY
+Ride_id,
+Rideable_Type,
+Membership_Type,
+Start_Time,
+Start_Date,
+Start_Month,
+Start_Day,
+Start_Station_Name,
+End_Time,
+End_Date,
+End_Month,
+End_Day,
+End_Station_Name,
+Duration
+HAVING
+COUNT(*) > 1
