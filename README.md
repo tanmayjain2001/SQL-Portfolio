@@ -23,3 +23,8 @@ Then I checked for NULL values and eleminated them.
 Also I checked for duplicate values.
 Then I checked for negative value in Duration column as duration cannot be negative.
 After going through all these steps I had data ready for analysis!
+
+Project is done in 3 steps - 
+1. Combining the datasets
+2. Cleaning the dataset.
+3. Analizing the cleaned data.
