@@ -1,0 +1,123 @@
+-- Now analyzing the clean data.
+-- (1.) Total number of rides.
+
+SELECT 
+   COUNT(*) AS Total_Rides
+FROM 
+   overall_data
+
+-- (2.) Total number of rides of each membership type.
+
+SELECT
+
+   Membership_Type,
+   COUNT(*) AS total_rides,
+   ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM overall_data),2) AS percentage
+FROM 
+   overall_data
+GROUP BY
+   Membership_Type
+
+-- (3.) Average duration of rides by each member type.
+
+SELECT 
+   Membership_Type,
+   ROUND(AVG(Duration),2) as Avgerage_Duration_in_minutes
+FROM
+   overall_data
+GROUP BY
+   Membership_Type
+
+
+-- (4.)  Number of rides by each month of each member type.
+
+SELECT 
+   Start_Month,
+   COUNT(CASE WHEN Membership_Type = 'member' THEN 1 END) AS member_count,
+   COUNT(CASE WHEN Membership_Type = 'casual' THEN 1 END) AS casual_count
+FROM 
+   overall_data
+GROUP BY
+   Start_Month
+ORDER BY
+   MONTH(MIN(Start_Date))
+
+-- (5.)  Average duration of rides of each member by month.
+   
+
+SELECT 
+   Start_Month,
+   ROUND(AVG(CASE WHEN Membership_Type = 'casual' THEN Duration  END),2) AS casual_duration_in_minutes,
+   ROUND(AVG(CASE WHEN Membership_Type = 'member' THEN Duration  END),2) AS member_duration_in_minutes
+FROM
+   overall_data
+GROUP BY
+   Start_Month
+ORDER BY
+   MONTH(MIN(Start_Date))
+
+
+
+-- (6.) Number of rides by bike type and member type.
+WITH CTE AS
+(
+SELECT
+   Membership_Type,
+   Rideable_Type,
+   COUNT(*) AS Ride_Count
+FROM
+   overall_data
+GROUP BY
+   Membership_Type,
+   Rideable_Type
+   )
+
+SELECT 
+   Membership_Type,
+   MAX(CASE WHEN Rideable_Type = 'classic_bike' THEN Ride_Count END) AS classic_count,
+   MAX(CASE WHEN Rideable_Type = 'electric_bike' THEN Ride_Count END) AS electric_count,
+   MAX(CASE WHEN Rideable_Type = 'docked_bike' THEN Ride_Count END) AS docked_count
+FROM 
+   CTE
+GROUP BY
+   Membership_Type
+
+
+-- (7.) Rides by each member by day.
+
+SELECT
+   Start_Day,
+   COUNT(CASE WHEN Membership_Type = 'casual' THEN 1  END) AS casual_count,
+   COUNT(CASE WHEN Membership_Type = 'member' THEN 1  END) AS member_count
+FROM
+  overall_data
+GROUP BY
+   Start_Day
+ORDER BY
+   DAY(MIN(Start_Date))
+
+-- (8.) Average duration each day.
+
+SELECT
+   Start_Day,
+   ROUND(AVG(CASE WHEN Membership_Type = 'casual' THEN Duration END),2) AS casual_average_duration,
+   ROUND(AVG(CASE WHEN Membership_Type = 'member' THEN Duration END),2) AS member_average_duration
+FROM
+  overall_data
+GROUP BY
+   Start_Day
+ORDER BY
+   DAY(MIN(Start_Date))
+
+-- (9.) Users peak time.
+
+SELECT 
+
+   DATEPART(HOUR, Start_Time) as Peak_Time,
+   COUNT(*) AS total_rides
+FROM
+   overall_data
+GROUP BY
+   DATEPART(HOUR, Start_Time)
+ORDER BY
+   total_rides DESC
