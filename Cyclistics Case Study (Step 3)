@@ -1,4 +1,6 @@
--- Now analyzing the clean data.
+Now analyzing the clean data.
+
+
 -- (1.) Total number of rides.
 
 SELECT 
