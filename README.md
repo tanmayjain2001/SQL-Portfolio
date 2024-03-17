@@ -75,4 +75,5 @@ Danny has shared with you 3 key datasets for this case study:
 
 - sales
 - menu
-- members
+- members![Danny's Diner (1)](https://github.com/tanmayjain2001/SQL-Portfolio/assets/99605845/de7b2cca-4c8f-4308-babb-66830fafc763)
+
