@@ -1,4 +1,4 @@
-Step - 2 Cleaning the dataset.
+Step - 2 Cleaning the dataset
 
 -- Checking duration of rides below or equal to 0.
 SELECT
