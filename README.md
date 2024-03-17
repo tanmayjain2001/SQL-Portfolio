@@ -104,7 +104,7 @@ C	2021-01-07	3
 
 
 
-Table 2: menu
+### **Table 2: menu**
 The menu table maps the product_id to the actual product_name and price of each menu item.
 
 product_id	product_name	price
@@ -113,9 +113,13 @@ product_id	product_name	price
 3	ramen	12
 
 
-Table 3: members
+### **Table 3: members**
 The final members table captures the join_date when a customer_id joined the beta version of the Danny’s Diner loyalty program.
 
 customer_id	join_date
 A	2021-01-07
 B	2021-01-09
+
+
+
+
