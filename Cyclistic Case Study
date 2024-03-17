@@ -1,3 +1,5 @@
+STEP - 1 Combining all 12 datasets.
+
 -- Creating a seperate table consists of combined data of all months.
 
 CREATE TABLE
