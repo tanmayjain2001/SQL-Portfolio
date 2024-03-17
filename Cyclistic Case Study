@@ -1,0 +1,285 @@
+-- Creating a seperate table consists of combined data of all months.
+
+CREATE TABLE
+overall_data
+(
+
+Ride_Id varchar(50),
+Rideable_Type varchar(50),
+Membership_Type varchar(50),
+Start_Time time,
+Start_Date date,
+Start_Month varchar(50),
+Start_Day varchar(50),
+Start_Station_Name nvarchar(MAX),
+End_Time time,
+End_Date date,
+End_Month varchar(50),
+End_Day varchar(50),
+End_Station_Name nvarchar(MAX),
+Duration float
+)
+
+- - Now Inserting data from all 12 tables.
+- - (1.) January
+INSERT INTO
+Cyclistic.dbo.overall_data
+SELECT
+ride_id AS Ride_Id,
+rideable_type AS Rideable_Type,
+member_casual AS Membership_Type,
+CAST(started_at AS time) AS Start_Time,
+CAST(started_at AS date) AS Start_Date,
+DATENAME(MONTH, started_at) AS Start_Month,
+DATENAME(WEEKDAY, started_at) AS Start_Day,
+start_station_name AS Start_Station_Name,
+CAST(ended_at AS time) AS End_Time,
+CAST(ended_at AS date) AS End_Date,
+DATENAME(MONTH, ended_at) AS End_Month,
+DATENAME(WEEKDAY, ended_at) AS End_Day,
+end_station_name AS End_Station_Name,
+DATEDIFF(minute, started_at, ended_at) AS Duration
+FROM
+Cyclistic.dbo.[202301]
+
+-- (2.) February
+
+INSERT INTO
+Cyclistic.dbo.overall_data
+SELECT
+ride_id AS Ride_Id,
+rideable_type AS Rideable_Type,
+member_casual AS Membership_Type,
+CAST(started_at AS time) AS Start_Time,
+CAST(started_at AS date) AS Start_Date,
+DATENAME(MONTH, started_at) AS Start_Month,
+DATENAME(WEEKDAY, started_at) AS Start_Day,
+start_station_name AS Start_Station_Name,
+CAST(ended_at AS time) AS End_Time,
+CAST(ended_at AS date) AS End_Date,
+DATENAME(MONTH, ended_at) AS End_Month,
+DATENAME(WEEKDAY, ended_at) AS End_Day,
+end_station_name AS End_Station_Name,
+DATEDIFF(minute, started_at, ended_at) AS Duration
+FROM
+Cyclistic.dbo.[202302]
+
+-- (3.) March
+
+INSERT INTO
+Cyclistic.dbo.overall_data
+SELECT
+ride_id AS Ride_Id,
+rideable_type AS Rideable_Type,
+member_casual AS Membership_Type,
+CAST(started_at AS time) AS Start_Time,
+CAST(started_at AS date) AS Start_Date,
+DATENAME(MONTH, started_at) AS Start_Month,
+DATENAME(WEEKDAY, started_at) AS Start_Day,
+start_station_name AS Start_Station_Name,
+CAST(ended_at AS time) AS End_Time,
+CAST(ended_at AS date) AS End_Date,
+DATENAME(MONTH, ended_at) AS End_Month,
+DATENAME(WEEKDAY, ended_at) AS End_Day,
+end_station_name AS End_Station_Name,
+DATEDIFF(minute, started_at, ended_at) AS Duration
+FROM
+Cyclistic.dbo.[202303]
+
+-- (4.) April
+
+INSERT INTO
+Cyclistic.dbo.overall_data
+SELECT
+ride_id AS Ride_Id,
+rideable_type AS Rideable_Type,
+member_casual AS Membership_Type,
+CAST(started_at AS time) AS Start_Time,
+CAST(started_at AS date) AS Start_Date,
+DATENAME(MONTH, started_at) AS Start_Month,
+DATENAME(WEEKDAY, started_at) AS Start_Day,
+start_station_name AS Start_Station_Name,
+CAST(ended_at AS time) AS End_Time,
+CAST(ended_at AS date) AS End_Date,
+DATENAME(MONTH, ended_at) AS End_Month,
+DATENAME(WEEKDAY, ended_at) AS End_Day,
+end_station_name AS End_Station_Name,
+DATEDIFF(minute, started_at, ended_at) AS Duration
+FROM
+Cyclistic.dbo.[202304]
+
+-- (5.) May
+
+INSERT INTO
+Cyclistic.dbo.overall_data
+SELECT
+ride_id AS Ride_Id,
+rideable_type AS Rideable_Type,
+member_casual AS Membership_Type,
+CAST(started_at AS time) AS Start_Time,
+CAST(started_at AS date) AS Start_Date,
+DATENAME(MONTH, started_at) AS Start_Month,
+DATENAME(WEEKDAY, started_at) AS Start_Day,
+start_station_name AS Start_Station_Name,
+CAST(ended_at AS time) AS End_Time,
+CAST(ended_at AS date) AS End_Date,
+DATENAME(MONTH, ended_at) AS End_Month,
+DATENAME(WEEKDAY, ended_at) AS End_Day,
+end_station_name AS End_Station_Name,
+DATEDIFF(minute, started_at, ended_at) AS Duration
+FROM
+Cyclistic.dbo.[202305]
+
+-- (6.) June
+
+INSERT INTO
+Cyclistic.dbo.overall_data
+SELECT
+ride_id AS Ride_Id,
+rideable_type AS Rideable_Type,
+member_casual AS Membership_Type,
+CAST(started_at AS time) AS Start_Time,
+CAST(started_at AS date) AS Start_Date,
+DATENAME(MONTH, started_at) AS Start_Month,
+DATENAME(WEEKDAY, started_at) AS Start_Day,
+start_station_name AS Start_Station_Name,
+CAST(ended_at AS time) AS End_Time,
+CAST(ended_at AS date) AS End_Date,
+DATENAME(MONTH, ended_at) AS End_Month,
+DATENAME(WEEKDAY, ended_at) AS End_Day,
+end_station_name AS End_Station_Name,
+DATEDIFF(minute, started_at, ended_at) AS Duration
+FROM
+Cyclistic.dbo.[202306]
+
+-- (7.) July
+
+INSERT INTO
+Cyclistic.dbo.overall_data
+SELECT
+ride_id AS Ride_Id,
+rideable_type AS Rideable_Type,
+member_casual AS Membership_Type,
+CAST(started_at AS time) AS Start_Time,
+CAST(started_at AS date) AS Start_Date,
+DATENAME(MONTH, started_at) AS Start_Month,
+DATENAME(WEEKDAY, started_at) AS Start_Day,
+start_station_name AS Start_Station_Name,
+CAST(ended_at AS time) AS End_Time,
+CAST(ended_at AS date) AS End_Date,
+DATENAME(MONTH, ended_at) AS End_Month,
+DATENAME(WEEKDAY, ended_at) AS End_Day,
+end_station_name AS End_Station_Name,
+DATEDIFF(minute, started_at, ended_at) AS Duration
+FROM
+Cyclistic.dbo.[202307]
+
+-- (8.) August
+
+INSERT INTO
+Cyclistic.dbo.overall_data
+SELECT
+ride_id AS Ride_Id,
+rideable_type AS Rideable_Type,
+member_casual AS Membership_Type,
+CAST(started_at AS time) AS Start_Time,
+CAST(started_at AS date) AS Start_Date,
+DATENAME(MONTH, started_at) AS Start_Month,
+DATENAME(WEEKDAY, started_at) AS Start_Day,
+start_station_name AS Start_Station_Name,
+CAST(ended_at AS time) AS End_Time,
+CAST(ended_at AS date) AS End_Date,
+DATENAME(MONTH, ended_at) AS End_Month,
+DATENAME(WEEKDAY, ended_at) AS End_Day,
+end_station_name AS End_Station_Name,
+DATEDIFF(minute, started_at, ended_at) AS Duration
+FROM
+Cyclistic.dbo.[202308]
+
+-- (9.) September
+
+INSERT INTO
+Cyclistic.dbo.overall_data
+SELECT
+ride_id AS Ride_Id,
+rideable_type AS Rideable_Type,
+member_casual AS Membership_Type,
+CAST(started_at AS time) AS Start_Time,
+CAST(started_at AS date) AS Start_Date,
+DATENAME(MONTH, started_at) AS Start_Month,
+DATENAME(WEEKDAY, started_at) AS Start_Day,
+start_station_name AS Start_Station_Name,
+CAST(ended_at AS time) AS End_Time,
+CAST(ended_at AS date) AS End_Date,
+DATENAME(MONTH, ended_at) AS End_Month,
+DATENAME(WEEKDAY, ended_at) AS End_Day,
+end_station_name AS End_Station_Name,
+DATEDIFF(minute, started_at, ended_at) AS Duration
+FROM
+Cyclistic.dbo.[202309]
+
+-- (10.) October
+
+INSERT INTO
+Cyclistic.dbo.overall_data
+SELECT
+ride_id AS Ride_Id,
+rideable_type AS Rideable_Type,
+member_casual AS Membership_Type,
+CAST(started_at AS time) AS Start_Time,
+CAST(started_at AS date) AS Start_Date,
+DATENAME(MONTH, started_at) AS Start_Month,
+DATENAME(WEEKDAY, started_at) AS Start_Day,
+start_station_name AS Start_Station_Name,
+CAST(ended_at AS time) AS End_Time,
+CAST(ended_at AS date) AS End_Date,
+DATENAME(MONTH, ended_at) AS End_Month,
+DATENAME(WEEKDAY, ended_at) AS End_Day,
+end_station_name AS End_Station_Name,
+DATEDIFF(minute, started_at, ended_at) AS Duration
+FROM
+Cyclistic.dbo.[202310]
+
+-- (11.) November
+
+INSERT INTO
+Cyclistic.dbo.overall_data
+SELECT
+ride_id AS Ride_Id,
+rideable_type AS Rideable_Type,
+member_casual AS Membership_Type,
+CAST(started_at AS time) AS Start_Time,
+CAST(started_at AS date) AS Start_Date,
+DATENAME(MONTH, started_at) AS Start_Month,
+DATENAME(WEEKDAY, started_at) AS Start_Day,
+start_station_name AS Start_Station_Name,
+CAST(ended_at AS time) AS End_Time,
+CAST(ended_at AS date) AS End_Date,
+DATENAME(MONTH, ended_at) AS End_Month,
+DATENAME(WEEKDAY, ended_at) AS End_Day,
+end_station_name AS End_Station_Name,
+DATEDIFF(minute, started_at, ended_at) AS Duration
+FROM
+Cyclistic.dbo.[202311]
+
+-- (12.) December
+
+INSERT INTO
+Cyclistic.dbo.overall_data
+SELECT
+ride_id AS Ride_Id,
+rideable_type AS Rideable_Type,
+member_casual AS Membership_Type,
+CAST(started_at AS time) AS Start_Time,
+CAST(started_at AS date) AS Start_Date,
+DATENAME(MONTH, started_at) AS Start_Month,
+DATENAME(WEEKDAY, started_at) AS Start_Day,
+start_station_name AS Start_Station_Name,
+CAST(ended_at AS time) AS End_Time,
+CAST(ended_at AS date) AS End_Date,
+DATENAME(MONTH, ended_at) AS End_Month,
+DATENAME(WEEKDAY, ended_at) AS End_Day,
+end_station_name AS End_Station_Name,
+DATEDIFF(minute, started_at, ended_at) AS Duration
+FROM
+Cyclistic.dbo.[202312]
